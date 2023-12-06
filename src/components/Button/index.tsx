@@ -1,13 +1,12 @@
-import cls from './index.module.scss';
-
 interface ButtonProps {
    onClick?: () => void;
    children: React.ReactNode;
+   className?: string;
 }
 
-export const Button = ({ children, onClick }: ButtonProps) => {
+export const Button = ({ children, className, onClick }: ButtonProps) => {
    return (
-      <button className={ cls.button }
+      <button className={ `${ className }` }
                onClick={ onClick }
       >{ children }</button>
    )

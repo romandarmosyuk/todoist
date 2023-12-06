@@ -1,5 +1,11 @@
+import { FC } from 'react';
 import cls from './index.module.scss';
 
-export const Wrapper = () => {
-   return <div className={ cls.wrapper }></div>
+
+interface WrapperProps {
+   children: React.ReactNode;
+}
+
+export const Wrapper: FC<WrapperProps> = ({ children }) => {
+   return <div className={ cls.wrapper }>{ children }</div>
 }

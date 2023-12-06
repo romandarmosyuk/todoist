@@ -4,6 +4,7 @@ import { Input } from "../Input";
 
 import cls from './index.module.scss';
 import { Task } from "../ListToDo/data";
+import plus from '../../../public/plus.png';
 
 interface SearchBlockProps {
    addToDo: (task: Task) => void;
@@ -12,23 +13,21 @@ interface SearchBlockProps {
 export const SearchBlock = ({ addToDo }: SearchBlockProps) => {
    const [value, setValue] = useState('');
 
-   const handleAdd = () => {
+   const handleAdd = (): void => {
       addToDo({ id: new Date().valueOf(), task: value, complete: false });
       setValue('');
    }
 
-   // const deleteToDo = (id: Task['id']): void => {
-   //    const filteredToDoList = toDoList.filter((todo) => todo.id !== id );
-
-   //    settoDoList(newtoDoList);
-   // }
-
    return (
       <div className={ cls.container }>
-         <Input value={value} onChange={(evt) => setValue(evt.target.value)}/>
+         <Input value={value} className={ cls.input } onChange={(evt) => setValue(evt.target.value)}/>
          <Button 
-            onClick={handleAdd}>
-               Добавить
+            className={ cls.button }
+            onClick={ handleAdd }>
+               <div className={ cls.button__box }>
+                  <span>Добавить</span>
+                  <img src={ plus } alt="plus" />
+               </div>
          </Button>
       </div>
    )

@@ -1,7 +1,7 @@
 export interface Task {
    id: number,
    task: string,
-   complete: boolean
+   complete: boolean,
 }
 
 export const data: Task[]= [

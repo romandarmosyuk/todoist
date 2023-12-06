@@ -1,5 +1,38 @@
 .card {
    display: flex;
    gap: 10px;
-   padding: 10px;
+   justify-content: center;
+   border-radius: 8px;
+   border: 1px solid #0D0D0D;
+   background: #262626;
+   padding: 16px;
+
+   .checkbox {
+      display: flex;
+      border-radius: 50%;
+      border: 1px solid blue;
+      justify-content: center;
+   }
+
+   .input {
+      font-size: 14px;
+      border: transparent;
+      background-color: transparent;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      width: 100%;
+      color: white;
+   }
+
+   .button__box {
+      display: flex;
+      gap: 10px;
+
+      .button {
+         background-color: transparent;
+         border: inherit;
+         cursor: pointer;
+      }
+   }
 }

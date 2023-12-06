@@ -1,0 +1,19 @@
+.checkbox {
+   display: flex;
+   width: 17px;
+   height: 17px;
+   border-radius: 50%;
+   border: 1px solid #4EA8DE;
+   margin: auto 0;
+
+   .checkbox::before {
+      contain: '';
+      width: 17px;
+      height: 17px;
+      background-image: url('./check.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+   }
+}
+
+   
