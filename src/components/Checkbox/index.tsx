@@ -6,10 +6,10 @@ interface CheckboxProps {
 
 export const Checkbox = ( {className}: CheckboxProps) => {
    return (
-      <>
-         <input type="checkbox" className={ `${ className }`}/>
-         <span className={ cls.checkbox }> </span>
-      </>
+      <label>
+         <input type="checkbox" className={ cls.real + '' + `${ className }`}/>
+         <span className={ cls.custom }> </span>
+      </label>
       
    )
 }

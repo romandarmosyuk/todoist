@@ -1,4 +1,8 @@
-.checkbox {
+label {
+   display: flex;
+}
+
+.custom {
    display: flex;
    width: 17px;
    height: 17px;
@@ -6,14 +10,26 @@
    border: 1px solid #4EA8DE;
    margin: auto 0;
 
-   .checkbox::before {
-      contain: '';
+   &::after {
+      content: '';
       width: 17px;
       height: 17px;
       background-image: url('./check.svg');
       background-repeat: no-repeat;
       background-size: contain;
+      transform: scale(0);
    }
+  
 }
+
+// .real:checked {
+//    $selector: check;
+// }
+
+// @if check {
+//    .custom::before {
+//       transform: scale(1);
+//    }
+// }
 
    

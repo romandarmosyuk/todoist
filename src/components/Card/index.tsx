@@ -8,12 +8,12 @@ import del from '../../../public/delete.png';
 import { Checkbox } from '../Checkbox';
 
 interface CardProps {
+   card: Task;
    deleteToDo: (task: Task['id']) => void;
-   toDoList: Task[];
 }
 
 
-export const Card = ({task, complete}: Omit<Task, 'id'>) => {
+export const Card = ({card, deleteToDo}: CardProps) => {
    const [value, setValue] = useState('');
 
    
@@ -25,8 +25,8 @@ export const Card = ({task, complete}: Omit<Task, 'id'>) => {
             value={ value }  
             className={ cls.input } 
             onChange={(evt) => setValue(evt.target.value)} 
-            placeholder={ task } 
-            checked={ complete }
+            placeholder={ card.task } 
+            checked={ card.complete }
          />
          <div className={cls.button__box}>
             <Button className={ cls.button }>
@@ -34,7 +34,7 @@ export const Card = ({task, complete}: Omit<Task, 'id'>) => {
             </Button>
             <Button 
                className={ cls.button }
-               // onClick={() => deleteToDo(id) }
+               onClick={() => deleteToDo(card.id) }
             >
                <img  src={ del }  alt="delete" />
             </Button>

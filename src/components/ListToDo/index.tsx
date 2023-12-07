@@ -11,8 +11,8 @@ export interface ListToDoProps {
 export const ListToDo = ({ toDoList, deleteToDo }: ListToDoProps) => {
    return (
       <div className={ cls.container }>
-         {toDoList.map(({ id, task, complete }) => (
-            <Card key={id} task={task} complete={complete} />
+         {toDoList.map((card) => (
+            <Card key={card.id} card={card} deleteToDo = {deleteToDo}/>
          ))}
       </div>
    )
