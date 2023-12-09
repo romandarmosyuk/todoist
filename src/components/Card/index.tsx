@@ -15,12 +15,9 @@ interface CardProps {
 
 export const Card = ({card, deleteToDo}: CardProps) => {
    const [value, setValue] = useState('');
-
-   
-
    return (
       <div className={ cls.card }>
-         <Checkbox/>
+         <Checkbox card={card}/>
          <Input 
             value={ value }  
             className={ cls.input } 

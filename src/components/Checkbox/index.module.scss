@@ -9,27 +9,18 @@ label {
    border-radius: 50%;
    border: 1px solid #4EA8DE;
    margin: auto 0;
-
-   &::after {
-      content: '';
-      width: 17px;
-      height: 17px;
-      background-image: url('./check.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      transform: scale(0);
-   }
-  
 }
 
-// .real:checked {
-//    $selector: check;
-// }
+.real {
+   width: 0;
+   height: 0;
+   position: absolute;
+   z-index: -1;
+}
 
-// @if check {
-//    .custom::before {
-//       transform: scale(1);
-//    }
-// }
-
+.active {
+   background-image: url('./check.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
+}
    

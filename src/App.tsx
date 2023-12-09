@@ -27,7 +27,7 @@ function App() {
    <Wrapper>
       <Logo/>
       <SearchBlock addToDo={ addToDo }/>
-      <Counter />
+      <Counter toDoList={ toDoList }/>
       <ListToDo toDoList={ toDoList } deleteToDo={ deleteToDo }/>
    </Wrapper>
   )
