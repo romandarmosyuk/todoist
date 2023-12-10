@@ -30,12 +30,23 @@ function App() {
       setToDoList(mappedToDo);
    }
 
+   const toggleIsEdit = (id: Task['id']): void => { 
+      const editToDo = toDoList.map((el) => 
+      el.id === id ? {...el, isEdit: !el.isEdit} : el);
+
+      setToDoList(editToDo);
+   }
+
   return (
    <Wrapper>
       <Logo/>
       <SearchBlock addToDo={ addToDo }/>
       <Counter toDoList={ toDoList }/>
-      <ListToDo toDoList={ toDoList } deleteToDo={ deleteToDo } toggleCompleteToDo={toggleCompleteToDo}/>
+      <ListToDo 
+         toDoList={ toDoList } 
+         deleteToDo={ deleteToDo } 
+         toggleCompleteToDo={toggleCompleteToDo}
+         toggleIsEdit={toggleIsEdit}/>
    </Wrapper>
   )
 }

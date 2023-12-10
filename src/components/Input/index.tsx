@@ -4,6 +4,7 @@ interface InputProps {
    className?: string;
    placeholder?: string;
    checked?: boolean;
+   autoFocus?: React.HTMLAttributes<HTMLInputElement>;
 }
 
 export const Input = ({value, onChange, className, placeholder}: InputProps) => {
@@ -13,5 +14,6 @@ export const Input = ({value, onChange, className, placeholder}: InputProps) => 
             className={ `${className}` } 
             value={ value }
             onChange= { onChange }
+            autoFocus
          />
 }

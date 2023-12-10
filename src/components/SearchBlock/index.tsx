@@ -14,13 +14,13 @@ export const SearchBlock = ({ addToDo }: SearchBlockProps) => {
    const [value, setValue] = useState('');
 
    const handleAdd = (): void => {
-      addToDo({ id: new Date().valueOf(), task: value, complete: false });
+      addToDo({ id: new Date().valueOf(), task: value, complete: false, isEdit: false });
       setValue('');
    }
 
    return (
       <div className={ cls.container }>
-         <Input value={value} className={ cls.input } onChange={(evt) => setValue(evt.target.value)}/>
+         <Input value={ value } className={ cls.input } onChange={(evt) => setValue(evt.target.value)}/>
          <Button 
             className={ cls.button }
             onClick={ handleAdd }>
