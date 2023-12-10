@@ -1,26 +1,19 @@
-import { useState } from 'react';
-import { Task } from '../ListToDo/data';
 import cls from './index.module.scss';
 
 interface CheckboxProps {
-   card: Task;
+   checked: boolean;
+   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export const Checkbox = ( {card}: CheckboxProps) => {
-   const [isChecked, setIsChecked] = useState(card.complete)
-
-   const checkHandler = () => {
-      setIsChecked(!isChecked)
-
-   }
-
-   card.complete = isChecked;
-   console.log(card)
-
+export const Checkbox = ({ checked, onChange }: CheckboxProps) => {
    return (
       <label >
-         <input type="checkbox" defaultChecked={ isChecked } onClick={ checkHandler } className={ cls.real }/>
-         <span  className={ `${cls.custom} ${ isChecked ? cls.active : ''}` }> </span>
+         <input 
+            type="checkbox" 
+            checked={ checked } 
+            onChange={ onChange } 
+            className={ cls.real }/>
+         <span  className={ `${cls.custom} ${ checked ? cls.active : ''}` }> </span>
       </label>
       
    )

@@ -10,14 +10,15 @@ import { Checkbox } from '../Checkbox';
 interface CardProps {
    card: Task;
    deleteToDo: (task: Task['id']) => void;
+   toggleCompleteToDo: (task: Task['id']) => void;
 }
 
 
-export const Card = ({card, deleteToDo}: CardProps) => {
+export const Card = ({card, deleteToDo,toggleCompleteToDo}: CardProps) => {
    const [value, setValue] = useState('');
    return (
       <div className={ cls.card }>
-         <Checkbox card={card}/>
+         <Checkbox checked={card.complete} onChange={ ()=>{toggleCompleteToDo(card.id)}}/>
          <Input 
             value={ value }  
             className={ cls.input } 

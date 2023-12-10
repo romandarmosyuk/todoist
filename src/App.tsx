@@ -23,12 +23,19 @@ function App() {
       setToDoList(filteredToDoList);
    }
 
+   const toggleCompleteToDo = (id: Task['id']): void => {
+      const mappedToDo = toDoList.map((el) => 
+      el.id === id ? {...el, complete: !el.complete} : el);
+
+      setToDoList(mappedToDo);
+   }
+
   return (
    <Wrapper>
       <Logo/>
       <SearchBlock addToDo={ addToDo }/>
       <Counter toDoList={ toDoList }/>
-      <ListToDo toDoList={ toDoList } deleteToDo={ deleteToDo }/>
+      <ListToDo toDoList={ toDoList } deleteToDo={ deleteToDo } toggleCompleteToDo={toggleCompleteToDo}/>
    </Wrapper>
   )
 }
