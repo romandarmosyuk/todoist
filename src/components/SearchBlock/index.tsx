@@ -19,7 +19,7 @@ export const SearchBlock = ({ addToDo }: SearchBlockProps) => {
    }
 
    return (
-      <div className={ cls.container }>
+      <div className={ cls.searchBlock }>
          <Input value={ value } className={ cls.input } onChange={(evt) => setValue(evt.target.value)}/>
          <Button 
             className={ cls.button }

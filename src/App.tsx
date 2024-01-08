@@ -6,7 +6,7 @@ import { Task, data } from './components/ListToDo/data';
 import { Wrapper } from './components/Wrapper';
 import { Counter } from './components/Counter'
 
-import './App.css'
+import cls from './App.module.scss';
 
 function App() {
    const [toDoList, setToDoList] = useState<Task[]>(data);
@@ -30,23 +30,27 @@ function App() {
       setToDoList(mappedToDo);
    }
 
-   const toggleIsEdit = (id: Task['id']): void => { 
-      const editToDo = toDoList.map((el) => 
-      el.id === id ? {...el, isEdit: !el.isEdit} : el);
+   const editToDo = (task: Task): void => { 
+      const newToDoList = [...toDoList];
 
-      setToDoList(editToDo);
+      const currentToDo = toDoList.findIndex((todo) => todo.id === task.id)
+      newToDoList[currentToDo] = task;
+
+      setToDoList(newToDoList)
    }
 
   return (
    <Wrapper>
-      <Logo/>
-      <SearchBlock addToDo={ addToDo }/>
-      <Counter toDoList={ toDoList }/>
-      <ListToDo 
-         toDoList={ toDoList } 
-         deleteToDo={ deleteToDo } 
-         toggleCompleteToDo={toggleCompleteToDo}
-         toggleIsEdit={toggleIsEdit}/>
+      <div className={ cls.main }>
+         <Logo/>
+         <SearchBlock addToDo={ addToDo }/>
+         <Counter toDoList={ toDoList }/>
+         <ListToDo 
+            toDoList={ toDoList } 
+            deleteToDo={ deleteToDo } 
+            toggleCompleteToDo={toggleCompleteToDo}
+            editToDo={ editToDo }/>
+      </div>
    </Wrapper>
   )
 }

@@ -26,14 +26,65 @@
       color: white;
    }
 
+   .titleChecked {
+      color: gray;
+      text-decoration: line-through
+   }
+
    .button__box {
       display: flex;
       gap: 10px;
 
       .button {
+         display: flex;
+         align-items: center;
          background-color: transparent;
          border: inherit;
          cursor: pointer;
+         color: white;
+
+            .save {
+               height: 24px;
+               display: flex;
+               align-items: center;
+            }
       }
    }
+}
+
+.popupTitle {
+   color: #4EA8DE;
+   text-align: center;
+   font-family: 'Inter';
+   font-size: 32px;
+   font-style: normal;
+   font-weight: 900;
+   line-height: normal;
+}
+
+.popupBtn {
+   display: flex;
+   gap: 100px;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+.buttonPopup {
+   color: white;
+   display: flex;
+   width: 107px;
+   padding: 16px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 8px;
+   border: inherit;
+    cursor: pointer;
+}
+
+.buttonRed {
+   background-color: #E25858;
+}
+
+.buttonBlue {
+   background-color: #4EA8DE;
 }

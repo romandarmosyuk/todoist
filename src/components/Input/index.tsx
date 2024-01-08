@@ -2,18 +2,16 @@ interface InputProps {
    value: string;
    onChange: React.ChangeEventHandler<HTMLInputElement>;
    className?: string;
-   placeholder?: string;
-   checked?: boolean;
    autoFocus?: React.HTMLAttributes<HTMLInputElement>;
 }
 
-export const Input = ({value, onChange, className, placeholder}: InputProps) => {
+export const Input = ({value, onChange, className}: InputProps) => {
    return <input type="text" 
             name="input" 
-            placeholder= { placeholder ? placeholder : 'Что хотим сделать?'}
+            placeholder= 'Что хотим сделать?'
             className={ `${className}` } 
             value={ value }
             onChange= { onChange }
-            autoFocus
+            // autoFocus
          />
 }
