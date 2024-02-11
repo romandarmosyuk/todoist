@@ -4,12 +4,16 @@ import { SearchBlock } from './components/SearchBlock'
 import { ListToDo } from './components/ListToDo';
 import { Task, data } from './components/ListToDo/data';
 import { Wrapper } from './components/Wrapper';
-import { Counter } from './components/Counter'
+import { Counter } from './components/Counter';
+import { ModalMode } from './components/ModalMode';
 
 import cls from './App.module.scss';
 
+
 function App() {
    const [toDoList, setToDoList] = useState<Task[]>(data);
+
+   const [modalActive, setModalActive] = useState(false);
 
    const addToDo = (task: Task): void => {
       const newToDoList = [...toDoList, task]
@@ -17,10 +21,12 @@ function App() {
       setToDoList(newToDoList);
    }
 
+
    const deleteToDo = (id: Task['id']): void => {
       const filteredToDoList = toDoList.filter((todo) => todo.id !== id );
 
       setToDoList(filteredToDoList);
+      console.log('delete')
    }
 
    const toggleCompleteToDo = (id: Task['id']): void => {
@@ -39,6 +45,15 @@ function App() {
       setToDoList(newToDoList)
    }
 
+   const modalOpen = () => {
+      setModalActive(true)
+   }
+
+   const modalclose = () => {
+      setModalActive(false)
+   }
+
+
   return (
    <Wrapper>
       <div className={ cls.main }>
@@ -49,8 +64,15 @@ function App() {
             toDoList={ toDoList } 
             deleteToDo={ deleteToDo } 
             toggleCompleteToDo={toggleCompleteToDo}
-            editToDo={ editToDo }/>
+            editToDo={ editToDo }
+            openModal={ modalOpen }/>
       </div>
+      <ModalMode 
+         deleteToDo={ deleteToDo } 
+         modalClose={modalclose} 
+         active={modalActive} 
+         setActive={setModalActive}
+         card={}/>
    </Wrapper>
   )
 }

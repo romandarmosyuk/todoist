@@ -8,9 +8,10 @@ export interface ListToDoProps {
    deleteToDo: (task: Task['id']) => void;
    toggleCompleteToDo: (task: Task['id']) => void;
    editToDo: (task: Task) => void;
+   openModal: () => void;
 }
 
-export const ListToDo = ({ toDoList, deleteToDo, toggleCompleteToDo, editToDo }: ListToDoProps) => {
+export const ListToDo = ({ toDoList, deleteToDo, toggleCompleteToDo, editToDo, openModal }: ListToDoProps) => {
 
    if (!toDoList.length) return (
       <div className={ cls.empty }>
@@ -30,7 +31,8 @@ export const ListToDo = ({ toDoList, deleteToDo, toggleCompleteToDo, editToDo }:
          card={card} 
          deleteToDo = {deleteToDo} 
          toggleCompleteToDo={toggleCompleteToDo}
-         editToDo={editToDo}/>
+         editToDo={editToDo}
+         openModal={ openModal }/>
    ))
         }  
       </div>

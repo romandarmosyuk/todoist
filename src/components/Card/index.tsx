@@ -13,16 +13,14 @@ interface CardProps {
    deleteToDo: (task: Task['id']) => void;
    toggleCompleteToDo: (task: Task['id']) => void;
    editToDo: (task: Task) => void;
+   openModal: () => void;
 }
 
 
 export const Card = (props: CardProps) => {
-
-   const {card, deleteToDo, toggleCompleteToDo, editToDo} = props;
+   const {card, deleteToDo, toggleCompleteToDo, editToDo, openModal} = props;
 
    const [value, setValue] = useState(card.task);
-
-   const [modalActive, setModalActive] = useState(false);
 
    return (
          <div className={ cls.card }>
@@ -55,22 +53,11 @@ export const Card = (props: CardProps) => {
             }
                <Button 
                   className={ cls.button }
-                  onClick={() => setModalActive(true) }
+                  onClick={() => openModal() }
                >
                   <img  src={ del }  alt="delete" />
                </Button>
-               <Modal active={modalActive} setActive={setModalActive}>
-                  <span className={ cls.popupTitle }>Вы точно хотите удалить
- текущую задачу?</span>
-                  <div className={ cls.popupBtn }>
-                     <Button className={ `${cls.buttonPopup}  ${ cls.buttonRed}` } onClick={() => deleteToDo(card.id)}>
-                       <span>Да!</span> 
-                     </Button>
-                     <Button className={ `${cls.buttonPopup} ${cls.buttonBlue}` } onClick={() => setModalActive(false)}>
-                       <span>Отмена</span> 
-                     </Button>
-                  </div>
-               </Modal>
+               
             </div>  
          </div>
          
